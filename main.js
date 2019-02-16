@@ -20,7 +20,8 @@ const pi = 3.14;
 var  obj = {
     name: "John",
     age: 22,
-    isMarried: false
+    isMarried: false,
+    man: true
 };
 
 console.log(obj["age"]);
