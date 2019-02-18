@@ -1,6 +1,6 @@
 'use strict'
 
-let money = prompt("Ваш бюджет на месяц?");
+let money = +prompt("Ваш бюджет на месяц?");
 let time = prompt("Введите дату в формате YYYY-MM-DD");
 
 let appData = {
@@ -13,17 +13,45 @@ let appData = {
 
 };
 
-let itemExp = prompt("Введите обязательную статью расходов в этом месяце");
-let sumExp = prompt("Во сколько обойдется?");
+// for (let i=0; i < 2; i++) {
+//     let itemExp = prompt("Введите обязательную статью расходов в этом месяце", '');
+//     let sumExp = +prompt("Во сколько обойдется?", '');
+//     if (typeof(itemExp) === 'string' && typeof(itemExp) != null &&
+//         typeof(sumExp) != null && itemExp != '' && sumExp != '' && itemExp.length <50 ) {
+//             appData.expenses[itemExp] = sumExp;
+//         }
+//     else {
+//         i--;
+//     }
+// };
 
-appData.expenses[itemExp] = sumExp;
+// let i = 0;
+// while (i < 2) {
+//     let itemExp = prompt("Введите обязательную статью расходов в этом месяце", '');
+//     let sumExp = +prompt("Во сколько обойдется?", '');
+     
+//     if (typeof(itemExp) === 'string' && typeof(itemExp) != null &&
+//         typeof(sumExp) != null && itemExp != '' && sumExp != '' &&
+//         itemExp.length <50 && !isNaN(sumExp)) {
+//             appData.expenses[itemExp] = sumExp;
+//             i++;
+//     }
+// }
 
-let  dayBudget = (appData.budget - appData.expenses[itemExp]) / 30;
+let i = 0;
+do {
+    let itemExp = prompt("Введите обязательную статью расходов в этом месяце", '');
+    let sumExp = +prompt("Во сколько обойдется?", '');
+     
+    if (typeof(itemExp) === 'string' && typeof(itemExp) != null &&
+        typeof(sumExp) != null && itemExp != '' && sumExp != '' &&
+        itemExp.length <50 && !isNaN(sumExp)) {
+            appData.expenses[itemExp] = sumExp;
+            i++;
+    }
+} while (i < 2);
+
+
+let  dayBudget = (appData.budget) / 30;
 
 alert ("Ваш бюджет на 1 день: " + Math.round(dayBudget));
-
-
-
-
-
-
